@@ -23,6 +23,7 @@ requirements:
   run:
     - numpy
     - python >={{ python_min }}
+    - scipy
 
 test:
   imports:
