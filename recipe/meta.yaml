@@ -1,5 +1,5 @@
 {% set name = "i-pi" %}
-{% set version = "3.0" %}
+{% set version = "3.1" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/ipi/ipi-{{ version }}.tar.gz
-  sha256: 9c94cdb105dc5c85c3485b241c47a72fe9981a2396e6deeb8a9ff2ff1ce55e52
+  sha256: 0b771d9ac46b0190a7046f60ef9beaad19df2ede86034a4b8347159dc3ab4f9c
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -23,11 +23,11 @@ requirements:
   run:
     - numpy
     - python >={{ python_min }}
+    - scipy
 
 test:
   imports:
     - ipi
-    - ipi._driver
   commands:
     - pip check
   requires:
