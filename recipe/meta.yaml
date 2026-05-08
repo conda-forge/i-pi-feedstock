@@ -1,5 +1,5 @@
 {% set name = "i-pi" %}
-{% set version = "3.1.12" %}
+{% set version = "3.2.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/ipi/ipi-{{ version }}.tar.gz
-  sha256: a602ff79d758ae5672e6bdc2173c458649a003ed9fa1688da431457882fae2a5
+  sha256: fe851091eb263907d1fb9427093f400a4d181989c4af1f61540e294d1838e144
 
 build:
   number: 0
