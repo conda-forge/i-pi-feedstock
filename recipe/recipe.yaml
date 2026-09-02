@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  name: i-pi
+  version: "3.3.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/ipi/ipi-${{ version }}.tar.gz
+  sha256: 07bad4815251eddbbc885d7cf6f01ac86224f334ebbd1e86f77ec2bf5950f535
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}
+    - setuptools
+  run:
+    - numpy
+    - python >=${{ python_min }}
+    - scipy
+
+tests:
+  - python:
+      imports:
+        - ipi
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  license: MIT
+  license_file: licenses/license_MIT.txt
+  summary: "i-PI: a universal force engine"
+  description: |
+    i-PI is a universal force engine interface written in Python, designed
+    to be used together with an ab-initio (or force-field based)
+    evaluation of the interactions between the atoms. The main goal is to
+    decouple the problem of evolving the ionic positions to sample the
+    appropriate thermodynamic ensemble and the problem of computing the
+    inter-atomic forces.
+  homepage: http://ipi-code.org
+  repository: https://github.com/i-pi/i-pi
+  documentation: https://ipi-code.org/i-pi/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
