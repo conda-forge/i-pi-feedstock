@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: i-pi
-  version: 3.3.0
+  version: "3.3.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/ipi/ipi-${{ version }}.tar.gz
-  sha256: 07bad4815251eddbbc885d7cf6f01ac86224f334ebbd1e86f77ec2bf5950f535
+  sha256: 0cea7805841efed7ce177cd2bc14b337966dc05df96afa10a01822b04712a79f
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
